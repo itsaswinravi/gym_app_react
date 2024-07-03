@@ -8,6 +8,16 @@ export const exerciseOptions={
 		'x-rapidapi-host': 'exercisedb.p.rapidapi.com'
 	}
 };
+export const youtubeoptions = {
+    method: 'GET',
+    
+    headers: {
+      'x-rapidapi-key': process.env.REACT_APP_RAPID_API_KEY,
+      'x-rapidapi-host': 'youtube-search-and-download.p.rapidapi.com'
+    }
+  };
+  
+  
 
 
 
