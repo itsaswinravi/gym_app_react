@@ -14,7 +14,11 @@ const Home = () => {
             <SearchExercises setExercises={setExercises}
             BodyPart={BodyPart} 
             setBodyPart={setBodyPart}/>
-            <Exercises />
+            <Exercises 
+            exercises={exercises}
+            setExercises={setExercises}
+            BodyPart={BodyPart} 
+            />
         </Box>
     );
 };
