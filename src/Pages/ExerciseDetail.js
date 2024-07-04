@@ -26,7 +26,7 @@ fetchExercisesData();
   },[id]);
     return ( 
     <Box>
-      <Detail exerciseDetail={ExerciseDetail} />
+      <Detail exerciseDetail={xerciseDetail} />
       <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name}/>
       <SimilarExercises />
 

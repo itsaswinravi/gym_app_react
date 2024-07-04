@@ -8,7 +8,7 @@ export const exerciseOptions={
 		'x-rapidapi-host': 'exercisedb.p.rapidapi.com'
 	}
 };
-export const youtubeoptions = {
+export const youtubeOptions = {
     method: 'GET',
     
     headers: {
