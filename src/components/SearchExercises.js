@@ -51,7 +51,7 @@ borderRadius: '40px'}}heigth="76px"
 
         </Box>
         <Box sx={{ position: 'relative', width: '100%', p: '20px'}}>
-            <HorizontalScrollbar data= {bodyParts} bodyPart={BodyPart} setBodyPart={setBodyPart}/>
+            <HorizontalScrollbar data= {bodyParts} bodyPart={BodyPart} setBodyPart={setBodyPart} isBodyParts/>
 
         </Box>
 

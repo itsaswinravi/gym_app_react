@@ -8,8 +8,10 @@ import SimilarExercises from '../components/SimilarExercises'
 import { exerciseOptions, fetchData, youtubeOptions } from '../utils/fetchData'
 
 const ExerciseDetail = () => {
-  const [ExerciseDetail, setExerciseDetail] = useState({});
-  const [exerciseVideos, setExerciseVideos] = useState({})
+  const [exerciseDetail, setExerciseDetail] = useState({});
+  const [exerciseVideos, setExerciseVideos] = useState({});
+  const [targetMuscleExercises, setTargetMuscleExercises] = useState([]);
+  const [equipmentExercises, setequipmentExercises] = useState([])
   const { id } = useParams();
   useEffect(() => {
 const fetchExercisesData = async() => {
@@ -19,16 +21,23 @@ const fetchExercisesData = async() => {
   const exerciseDetailData = await fetchData(`${exerciseDbUrl}/exercises/exercise/${id}`,exerciseOptions);
   setExerciseDetail(exerciseDetailData);
 
-  const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?q=${exerciseDetailData.name}`, youtubeOptions);
-  setExerciseVideos(exerciseVideosData)
+  const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetailData.name}`, youtubeOptions);
+
+  setExerciseVideos(exerciseVideosData.contents)
+
+  const targetMuscleExercisesData = await fetchData(`${exerciseDbUrl}/exercises/target/${exerciseDetailData.target}`, exerciseOptions);
+  setTargetMuscleExercises(targetMuscleExercisesData);
+  const equipmentExercisesData = await fetchData(`${exerciseDbUrl}/exercises/equipment/${exerciseDetailData.equipment}`, exerciseOptions);
+  setequipmentExercises(equipmentExercisesData);
 }
 fetchExercisesData();
   },[id]);
     return ( 
     <Box>
-      <Detail exerciseDetail={xerciseDetail} />
+      <Detail exerciseDetail={exerciseDetail} />
       <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name}/>
-      <SimilarExercises />
+      <SimilarExercises targetMuscleExercises={targetMuscleExercises}
+      equipmentExercises={equipmentExercises} />
 
     </Box>
   )
