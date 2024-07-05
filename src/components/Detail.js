@@ -1,12 +1,14 @@
 import React from 'react'
 import { Typography, Stack, Button } from '@mui/material';
+// stack is used for dividing the content horizontally and vertically 
+
 
 import BodyPartImage from '../assets/icons/body-part.png';
 import TargetImage from '../assets/icons/target.png';
 import EquipmentImage from '../assets/icons/body-part.png';
 
 const Details = ({ exerciseDetail }) => {
-  const { bodyPart, gifUrl, name , target, equipment} = exerciseDetail;
+  const { bodyPart, gifUrl, name , target, equipment} = exerciseDetail;  //destructuring
   const extraDetail = [
     {
       icon: BodyPartImage,
@@ -21,8 +23,12 @@ const Details = ({ exerciseDetail }) => {
     name: equipment,
     }
   ]
+  //sx means style in stack  
+  
   return (
    <Stack gap="60px" sx={{flexDirection: {lg: 'row'}, p: '20px', alignItems:'center'}}>
+    
+    
     <img src = {gifUrl} alt={name} loading='lazy' className='detail-image'/>
     <Stack sx={{ gap: { lg: '35px', xs: '20px'}}}>
       <Typography variant="h3">

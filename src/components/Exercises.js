@@ -19,7 +19,6 @@ const paginate=(e,value)=>{
 setCurrentPage(value);
 
 window.scrollTo({
-  // for large screens scroll to 900px and for small screens scroll to 500px
   top:window.innerWidth>600?1600:500,
   behavior:'smooth'
 })

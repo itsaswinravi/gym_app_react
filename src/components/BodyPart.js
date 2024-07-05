@@ -6,6 +6,7 @@ import { borderTop } from '@mui/system'
 
 const BodyPart = ({ item,setBodyPart, bodyPart }) => {
   return (
+    // doubt
    <Stack 
    type="button"
    alignItems="center"
